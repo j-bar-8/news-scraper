@@ -1,29 +1,22 @@
-// REQUIRE MONGOOSE AND REFRENCE SCHEMA CONSTRUCTOR
-// ===================================================================
-const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
+var mongoose = require("mongoose");
 
-// NEW OBJECT USING CONSTRUCTOR
-// ===================================================================
-const ArticleSchema = new Schema ({
-    title: {
-        type: String,
-        required: true
-    },
-    link: {
-        type: String,
-        required: true
-    },
-    note: {
-        type: Schema.Types.ObjectId,
-        ref: "Note"
-    }
+var Schema = mongoose.Schema;
+
+var ArticleSchema = new Schema({
+  title: {
+    type: String,
+    required: true
+  },
+  link: {
+    type: String,
+    required: true
+  },
+  note: {
+    type: Schema.Types.ObjectId,
+    ref: "Note"
+  }
 });
 
-// CREATE MODEL
-// ===================================================================
-const Article = mongoose.model("Article", ArticleSchema);
+var Article = mongoose.model("Article", ArticleSchema);
 
-// EXPORT
-// ===================================================================
 module.exports = Article;
