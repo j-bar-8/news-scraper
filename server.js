@@ -26,7 +26,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Use express.static to serve the public folder as a static directory
 app.use(express.static("public"));
 
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/news-scraper";
+var MONGODB_URI = process.env.MONGOLAB_BLACK_URI || "mongodb://localhost/news-scraper";
 mongoose.Promise = Promise;
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true});
 
