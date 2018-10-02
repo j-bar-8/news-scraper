@@ -51,12 +51,12 @@ app.get("/scrape", function(req, res) {
         });
     });
 
-    res.send("Scrape Complete");
+    res.send("Scrape Complete. Hit back button to see new Articles");
   });
 });
 
 app.get("/articles", function(req, res) {
-  db.Article.find({})
+  db.Article.find({}).sort({created_at: 1}).limit(20)
     .then(function(dbArticle) {
       res.json(dbArticle);
     })
